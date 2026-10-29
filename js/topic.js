@@ -2,7 +2,7 @@
 (function(){
 const {$,$$,shuffle,store}=App;
 const id=new URLSearchParams(location.search).get('t')||'a1-1';
-const T=window.TOPICS[id]; if(!T){document.body.innerHTML='<p style="padding:2rem">Topic not found.</p>';return}
+const T=window.TOPICS[id]; if(!T){document.body.innerHTML='<div style="padding:2rem;font:15px/1.5 system-ui"><p><b>Topic not found.</b></p><p>Topic id: '+id+'<br>Browser: '+navigator.userAgent+'<br>Errors: '+((window.__errs&&window.__errs.length)?window.__errs.join(" | "):"none")+'<br>Topics loaded: '+Object.keys(window.TOPICS||{}).join(", ")+'</p><p>Send a screenshot of this to your teacher.</p></div>';return}
 T.cmd=T.cmd||window.CMD; T.paper=T.paper||[];
 document.title=T.code+' '+T.title+' · AIA Design Technology';
 $('#tcode').textContent=T.code+' · '+T.level+' · '+T.hours+' hours';
