@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Site check</title>
+<style>body{font:15px/1.5 system-ui;max-width:760px;margin:20px auto;padding:0 14px}td,th{border:1px solid #ccd;padding:5px 8px;text-align:left;font-size:.85rem}table{border-collapse:collapse;width:100%}.ok{color:#1e8a4c}.bad{color:#c0392b;font-weight:700}</style></head><body>
+<h1>Site check</h1><p>Take a screenshot of this whole page and send it to Claude.</p><p id="u"></p><table id="t"><tr><th>File</th><th>Status</th><th>Bytes</th><th>Starts with</th></tr></table><p id="r"></p>
+<script>
+document.getElementById('u').textContent=location.href;
+const files=['topic.html','index.html','js/topic.js','js/app.js','js/config.js','js/topics/_common.js','js/topics/index.js','js/topics/a2-1.js','js/topics/c1-1.js','js/topics/ee-1.js'];
+(async()=>{
+ const T=document.getElementById('t');
+ for(const f of files){
+  let st='?',len='?',head='';
+  try{const r=await fetch(f+'?x='+Date.now(),{cache:'no-store'});st=r.status;const s=await r.text();len=s.length;head=s.slice(0,50).replace(/</g,'&lt;').replace(/\n/g,' ');
+   if(f==='topic.html')head+=' | has v= stamp: '+/\?v=2026/.test(s);
+   if(f==='js/topics/index.js')head+=' | READY items: '+((s.match(/window\.READY=\[([^\]]*)\]/)||[0,''])[1].split(',').length);
+  }catch(e){st='ERR '+e.message}
+  T.insertAdjacentHTML('beforeend',`<tr><td>${f}</td><td class="${st==200?'ok':'bad'}">${st}</td><td>${len}</td><td>${head}</td></tr>`);
+ }
+ window.TOPICS={};
+ await new Promise(res=>{const s=document.createElement('script');s.src='js/topics/_common.js?x='+Date.now();s.onload=res;s.onerror=res;document.body.appendChild(s)});
+ for(const id of ['a2-1','c1-1']){
+  await new Promise(res=>{const s=document.createElement('script');s.src='js/topics/'+id+'.js?x='+Date.now();s.onload=res;s.onerror=res;document.body.appendChild(s)});
+ }
+ document.getElementById('r').innerHTML='Topic data after loading: a2-1 = <b>'+(window.TOPICS['a2-1']?'found':'MISSING')+'</b>, c1-1 = <b>'+(window.TOPICS['c1-1']?'found':'MISSING')+'</b>. Errors: '+(window.__err||'none');
+})();
+window.addEventListener('error',e=>{window.__err=(window.__err||'')+e.message+' ('+e.filename+':'+e.lineno+') '});
+</script></body></html>
