@@ -1,0 +1,242 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EE in DT: student guide</title><style>:root{--bg:#f6f7f9;--fg:#1c2330;--card:#fff;--mut:#5f6773;--line:#d5d9e0;--g:#1e8a4c;--gb:#f1faf4;--i:#d9822b;--ib:#fff8ee;--f:#3a5bbf;--fb:#f2f5fd;--acc:#1f4e79}
+@media(prefers-color-scheme:dark){:root{--bg:#12161d;--fg:#e6e9ee;--card:#1a2029;--mut:#9aa3b0;--line:#2c3441;--gb:#14281d;--ib:#2c2012;--fb:#161e33;--acc:#7fb2e5}}
+*{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 Inter,system-ui,sans-serif}
+a{color:inherit}
+.bar{position:sticky;top:0;z-index:20;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:8px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .home{color:var(--mut);text-decoration:none;font-size:14px}.bar nav{margin-left:auto;display:flex;gap:6px}
+.bar nav a{width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;text-decoration:none;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+main{max-width:1200px;margin:0 auto;padding:16px}
+h1{margin:.3em 0;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15}
+h2{line-height:1.2}
+.lead{font-size:1.05rem;max-width:70ch}.small{font-size:.85rem;color:var(--mut);max-width:80ch}
+.badge{display:inline-block;margin:.2em 0;padding:3px 12px;border:1px solid var(--i);background:var(--ib);border-radius:6px;font-size:.85rem}
+.chip{display:inline-block;padding:1px 10px;border-radius:12px;color:#fff;font-weight:700;font-size:.82rem}
+.chip.g{background:var(--g)}.chip.i{background:var(--i)}.chip.f{background:var(--f)}
+.tw{overflow-x:auto}.tbl{border-collapse:collapse;width:100%;min-width:720px;background:var(--card);font-size:.9rem}
+.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--bg)}
+.crit{margin:36px 0 8px;padding:14px 18px;background:var(--c);color:#fff;border-radius:8px;scroll-margin-top:60px}.crit h2{margin:0 0 4px}.crit p{margin:4px 0}
+.pg{margin:20px 0;padding-top:4px;scroll-margin-top:60px}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:8px}.ph h3{margin:0;font-size:1.05rem;flex:1}
+.cc{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex:none}.pnum{color:var(--mut);font-size:.85rem}
+.row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:22px;align-items:start}
+.row.ex{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.imgw{position:relative;margin-right:10px}.imgw img{width:100%;display:block;border:1px solid var(--line);background:#fff;box-shadow:0 1px 5px #0003}
+.pin{position:absolute;right:-12px;width:24px;height:24px;border-radius:50%;color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);transform:translateY(-50%)}
+.pin.g,.box.g .n{background:var(--g)}.pin.i,.box.i .n{background:var(--i)}.pin.f,.box.f .n{background:var(--f)}
+.side{display:flex;flex-direction:column;gap:10px}
+.strand{padding:10px 14px;border-left:4px solid var(--c);background:var(--card);border-radius:4px;font-size:.92rem}
+.box{padding:10px 14px;border-left:5px solid;border-radius:5px}.box p{margin:2px 0 0;font-size:.95rem}
+.box .h{font-weight:700;font-size:.82rem;display:flex;gap:8px;align-items:center}
+.box .n{width:22px;height:22px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex:none}
+.box.g{border-color:var(--g);background:var(--gb)}.box.g .h{color:var(--g)}
+.box.i{border-color:var(--i);background:var(--ib)}.box.i .h{color:var(--i)}
+.box.f{border-color:var(--f);background:var(--fb)}.box.f .h{color:var(--f)}
+.paper{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 22px;font:1rem/1.65 Literata,Georgia,serif;box-shadow:0 1px 4px #0002}
+.paper h4{font:700 1rem Inter,system-ui,sans-serif;margin:1em 0 .3em}.paper p{margin:.6em 0}.paper ul,.paper ol{margin:.4em 0;padding-left:1.3em}
+.paper.form{border-left:5px solid #a03a52}
+.paper table{border-collapse:collapse;font:.85rem Inter,system-ui,sans-serif;margin:.6em 0;width:100%}.paper td,.paper th{border:1px solid var(--line);padding:4px 8px;text-align:left}.paper th{background:var(--bg)}
+.paper figure{margin:.8em 0}.paper figcaption{font:.8rem Inter,system-ui,sans-serif;color:var(--mut);margin-top:4px}.paper svg{width:100%;height:auto;display:block;color:var(--fg)}
+.paper .q{border-left:3px solid var(--line);padding-left:10px;color:var(--mut)}
+sup.mk{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;border-radius:9px;color:#fff;font:700 .68rem Inter,sans-serif;padding:0 4px;margin-left:2px;vertical-align:super}
+sup.mk.g{background:var(--g)}sup.mk.i{background:var(--i)}sup.mk.f{background:var(--f)}
+.tot{margin-top:28px}
+.pn{display:flex;justify-content:space-between;max-width:1200px;margin:20px auto;padding:0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:14px 0 26px}
+.card{display:flex;flex-direction:column;gap:3px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:8px;text-decoration:none}.card span{font-size:1.08rem;font-weight:600}.card small{color:var(--mut)}
+.card:hover{border-color:var(--acc)}
+@media(max-width:760px){.row,.row.ex{grid-template-columns:minmax(0,1fr)}.imgw{margin-right:12px}.paper{padding:14px 14px}}
+@media print{.bar,.pn{display:none}}
+
+.doc{max-width:860px;margin:0 auto}.doc h1{margin-top:.5em}.doc h2{margin-top:1.8em;padding-top:.4em;border-top:2px solid var(--line);scroll-margin-top:60px}
+.doc h3{margin:1.2em 0 .3em}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 8px}.toc a{padding:3px 11px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;font-size:.85rem}.toc a:hover{border-color:var(--acc)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.card2{padding:12px;background:var(--card);border:1px solid var(--line);border-radius:8px;text-align:center}.card2 b{display:block;font-size:1.7rem;color:var(--acc)}.card2 span{font-size:.85rem;color:var(--mut)}
+table.t{border-collapse:collapse;width:100%;background:var(--card);font-size:.92rem;min-width:560px}table.t th,table.t td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}table.t th{background:var(--bg)}
+.tip{border-left:5px solid var(--g);background:var(--gb);padding:10px 14px;border-radius:5px}
+.chk{list-style:none;padding-left:0}.chk li{padding:4px 0}.chk input{margin-right:8px;transform:scale(1.2)}
+.doc ul,.doc ol{padding-left:1.3em}.doc li{margin:.25em 0}
+</style></head><body><header class="bar"><a class="home" href="../index.html#ee">← Home</a><a class="home" href="index.html">EE hub</a><b>Student guide</b></header><main class="doc">
+<h1>Extended essay in Design Technology: the student guide</h1>
+<p class="lead">Everything you need to plan, research and write a DT extended essay (EE), in plain language. It follows the IB Extended essay guide (first assessment 2027) and the Design technology subject guidance in it, and uses lessons from the IB examiners' reports (2018, 2021, 2024).</p>
+<p class="small">Check dates, formats and deadlines with your supervisor and EE coordinator. School calendars differ and the IB can update its guide.</p>
+<nav class="toc" aria-label="Contents"><a href="#what">1 What it is</a><a href="#marks">2 How it is marked</a><a href="#dt">3 DT rules</a><a href="#topic">4 Topic</a><a href="#rq">5 Research question</a><a href="#method">6 Methods and sources</a><a href="#structure">7 Structure and words</a><a href="#analysis">8 Analysis</a><a href="#present">9 Presentation</a><a href="#rppf">10 RPPF and reflection</a><a href="#integrity">11 Integrity</a><a href="#plan">12 Timeline</a><a href="#mistakes">13 Mistakes</a><a href="#check">14 Checklist</a></nav>
+
+<h2 id="what">1. What the EE is</h2>
+<div class="cols">
+<div class="card2"><b>4,000</b><span>words maximum for the essay</span></div>
+<div class="card2"><b>≈40 h</b><span>of your own work</span></div>
+<div class="card2"><b>34</b><span>marks across five criteria</span></div>
+<div class="card2"><b>3</b><span>reflection sessions, the last is the viva voce</span></div>
+</div>
+<ul>
+<li>It is independent research on a topic you choose with your supervisor. In DT it investigates <b>the design and development of products or systems</b> and <b>their impact on individuals and society</b>.</li>
+<li>You also submit a <b>Reflections on planning and progress form (RPPF)</b> of up to <b>500 words</b>. It is how you earn criterion E.</li>
+<li>You need at least a <b>D grade</b> to be awarded the Diploma. The EE and Theory of knowledge together can add up to <b>3 points</b> to your Diploma total.</li>
+<li>Supervision is recommended at 3–5 hours and includes three mandatory reflection sessions. You are expected to write the essay yourself.</li>
+<li>Examiners <b>do not read beyond 4,000 words</b> and <b>do not read appendices</b>. Anything important that sits there does not count.</li>
+</ul>
+
+<h2 id="marks">2. How it is marked</h2>
+<div class="tw"><table class="t"><tr><th>Criterion</th><th>Marks</th><th>In plain language</th></tr>
+<tr><td><b>A</b> Focus and method</td><td>6</td><td>Is your topic and research question clear and focused, and did you choose sound methods and sources?</td></tr>
+<tr><td><b>B</b> Knowledge and understanding</td><td>6</td><td>Do your sources fit the question, and do you use design technology terms and concepts accurately?</td></tr>
+<tr><td><b>C</b> Critical thinking</td><td>12</td><td>Do you analyse your evidence, build a reasoned argument, evaluate your own research and reach a conclusion the evidence supports? This is the biggest criterion.</td></tr>
+<tr><td><b>D</b> Presentation</td><td>4</td><td>Is the structure and layout what an academic essay needs, and does it help the reader?</td></tr>
+<tr><td><b>E</b> Engagement</td><td>6</td><td>Do your reflections show real thinking about your decisions, challenges and learning? Judged on the RPPF only.</td></tr></table></div>
+<p>See <a href="criteria.html">the criteria page</a> for each band written for DT students, with what to do for each strand.</p>
+<p class="tip"><b>Where the marks are.</b> 12 of 34 marks are for critical thinking. Essays that describe and report do not score well there. Essays that analyse data, weigh evidence, and judge the limits of their own method do.</p>
+
+<h2 id="dt">3. The DT rules</h2>
+<ul>
+<li><b>Use primary and secondary sources.</b> The guide says no DT EE should be based only on textbooks and the internet. Primary sources are things you generate: tests, measurements, observations, interviews, surveys, prototypes. Secondary sources are books, journals, standards, patents, reports.</li>
+<li><b>Practical work is encouraged but not mandatory.</b> It can be testing products or materials, modelling a situation, prototyping, trialling a solution or developing a marketing strategy. Only include data that is directly relevant.</li>
+<li><b>Use the design cycle.</b> Show that you investigated a need, set out requirements, generated and developed ideas, tested, and evaluated, even when the essay is about a system or a comparison.</li>
+<li><b>No double-dipping.</b> The EE is not an extension of your IA. You may not use the same materials as the focus of the EE, and any data generated for the IA cannot be used. Academic misconduct puts your Diploma at risk.</li>
+<li><b>Topics the guide calls inappropriate:</b> purely historical accounts that only document the development of a product or technology; topics that overlap with your design project; and topics that only review a product or technology.</li>
+<li>If the topic or question is judged inappropriate for DT, marks are capped: A and B at 4, and C at 3.</li>
+<li>Your essay is judged on its <b>design technology content</b>. If a question draws on another subject, keep your argument in DT terms.</li>
+</ul>
+<div class="tw"><table class="t"><tr><th>Too broad</th><th>Focused</th></tr>
+<tr><td>Braking on a free-ride bicycle</td><td>Investigating the limitations affecting maximum braking on a free-ride bicycle</td></tr>
+<tr><td>Appliances for sufferers of arthritis</td><td>Ergonomic design of kettles for use by those with arthritic wrist joints</td></tr>
+<tr><td>Waste dematerialization</td><td>The impact on waste of dematerialization in food packaging</td></tr>
+<tr><td>Open-source product design</td><td>Investigating intellectual property rights in an open-source world for product design</td></tr></table></div>
+<p class="small">Examples from the IB Design technology subject guidance.</p>
+
+<h2 id="topic">4. Choosing a topic</h2>
+<p>Start with a design context you care about, then narrow. The guide suggests exploring artefacts that do not work well or waste resources, the needs of particular users (older people, disabled users, special needs), and new technologies and how they combine with existing ones. Systems are allowed too, for example a cold chain for vaccines in a hot climate.</p>
+<div class="tw"><table class="t"><tr><th>Type of essay</th><th>What you do</th><th>Example research question</th></tr>
+<tr><td><b>Test and compare</b></td><td>Build a test, change one variable, repeat, analyse the numbers</td><td>To what extent does infill pattern change the strength-to-mass ratio of printed PETG brackets?</td></tr>
+<tr><td><b>User-centred study</b></td><td>Observe, interview or trial with real users, then draw design requirements</td><td>To what extent does strap width change perceived discomfort for students carrying a school bag?</td></tr>
+<tr><td><b>Product or system analysis</b></td><td>Compare against stated criteria with measured or published data, such as a life-cycle comparison</td><td>To what extent is a reusable bottle more sustainable than a single-use bottle in a given setting?</td></tr>
+<tr><td><b>Design and evaluate a solution</b></td><td>Research a need, specify, prototype, test against the specification</td><td>How effective is a prototype shade for reducing heat gain in a given window?</td></tr>
+<tr><td><b>System design and feasibility</b></td><td>Analyse a system and test a model or run a simulation</td><td>How effective would a ride-share bike network be for short trips at a given campus?</td></tr></table></div>
+<p>Read the <a href="exemplar-1-infill.html">exemplars</a> to see how each type looks on the page. These are examples of approaches, not topics to copy.</p>
+<p class="tip"><b>Topic test.</b> Can you say in one sentence what you will measure, observe or compare, who or what it applies to, and why a designer would care? If not, narrow it.</p>
+
+<h2 id="rq">5. The research question</h2>
+<ul>
+<li>Write it as an <b>actual question</b>, clear and precise, placed prominently at the start. Use it as a page header if it helps you stay on track.</li>
+<li>It must be <b>answerable in 4,000 words</b> with the methods and time you have.</li>
+<li>It must be <b>arguable</b>: the answer is not obvious and depends on evidence. "To what extent…", "How effective is…", "Which of … best meets…" work well.</li>
+<li>It must be <b>design technology</b>: it asks about design, development, performance, users or impact of a product or system.</li>
+<li>Use the same wording on the title page, in the introduction and in the conclusion.</li>
+</ul>
+<p>Try the <a href="rq-lab.html">RQ lab</a> to check and improve a draft question.</p>
+
+<h2 id="method">6. Methods and sources</h2>
+<h3>Primary methods</h3>
+<ul>
+<li><b>Testing:</b> state the variable you change, the one you measure, and what you keep constant. Repeat each trial (at least three times) and report the spread. Explain the equipment and its uncertainty so that someone else could repeat it.</li>
+<li><b>User research:</b> choose a sample that matches your users, say how many, how you picked them, and how you protected them (consent, safe tasks, no personal names). Combine numbers with comments.</li>
+<li><b>Observation and product analysis:</b> use a stated framework, such as attribute analysis against your criteria, and measure rather than describe.</li>
+<li><b>Modelling and prototypes:</b> make them well enough to collect useful data, and explain what the model does not capture.</li>
+</ul>
+<h3>Secondary sources</h3>
+<ul>
+<li>Prefer standards, journal articles, technical reports, patents, manufacturer data sheets and books over blogs and forums.</li>
+<li>Judge each source: <b>origin</b> (who wrote it, when), <b>purpose</b> (to inform or to sell), <b>value</b> (what it tells you) and <b>limitation</b> (what it cannot tell you). Say so in the essay where it matters.</li>
+<li>Be careful with sources from a different place or time than your context. Say when data from elsewhere may not apply.</li>
+</ul>
+<h3>Reliability and validity</h3>
+<p><b>Reliability</b> is whether you would get the same result if you repeated it. <b>Validity</b> is whether you measured what you claim to measure. The examiners want you to comment on both, and on uncertainties, in your evaluation.</p>
+
+<h2 id="structure">7. Structure and word budget</h2>
+<p>The guide's required elements are: title page, contents page, introduction, body of the essay, conclusion, and references (bibliography). An abstract is <b>no longer required</b>. Older IB samples on this site have one, but it is not part of the current structure.</p>
+<div class="tw"><table class="t"><tr><th>Part</th><th>Suggested words</th><th>Job</th></tr>
+<tr><td>Introduction</td><td>300–400</td><td>Topic, why it matters, research question, your plan in a few lines</td></tr>
+<tr><td>Method</td><td>500–700</td><td>What you did and why, enough to repeat it, controls, ethics, limits you already know</td></tr>
+<tr><td>Background knowledge</td><td>500–700</td><td>Only the DT concepts and evidence your argument needs, linked to your question</td></tr>
+<tr><td>Results and analysis</td><td>1,000–1,300</td><td>Processed data, graphs, calculations, patterns, what each finding means for the question</td></tr>
+<tr><td>Discussion and evaluation</td><td>500–700</td><td>Argument across findings, reliability, validity, uncertainty, alternative explanations</td></tr>
+<tr><td>Conclusion</td><td>250–350</td><td>Direct answer to the question, supported by evidence, with remaining questions</td></tr></table></div>
+<p class="small">Totals about 3,500–4,000. This is a suggested budget, not a rule. Leave a margin under 4,000.</p>
+<div class="tw"><table class="t"><tr><th>Counts toward the 4,000</th><th>Does not count</th></tr>
+<tr><td>Introduction, main body, conclusion, quotations, footnotes or endnotes that are not references</td><td>Contents page, maps, charts, diagrams, annotated illustrations, tables, equations and calculations, citations and references, bibliography, the RPPF, headers</td></tr></table></div>
+<p>Do not use tables or captions to carry argument. If you put commentary inside a figure or table, it counts as essay text.</p>
+
+<h2 id="analysis">8. Analysis that earns critical-thinking marks</h2>
+<ol>
+<li><b>Process your data.</b> Raw data goes in a short appendix at most. In the body show processed data: means, ranges, percentages, ratios, uncertainty.</li>
+<li><b>Show one worked calculation</b>, then present the rest in a table or graph.</li>
+<li><b>Choose the right graph</b> for the question, label the axes and units, and include it only if it improves communication. Place it close to where you first refer to it.</li>
+<li><b>Say what each result means for the research question.</b> End each section with one sentence that links back.</li>
+<li><b>Look for pattern, exception and cause.</b> What would you expect from the theory? Does the data match? If not, why?</li>
+<li><b>Evaluate your own research critically.</b> Errors, uncertainty, sample, controls, missed variables, and how they could change the conclusion.</li>
+<li><b>Write a conclusion that answers.</b> State the answer, the strength of evidence behind it, and what remains uncertain. Do not add new evidence, and do not repeat earlier paragraphs.</li>
+</ol>
+
+<h2 id="present">9. Presentation</h2>
+<ul>
+<li>Use informative headings and subheadings. Number figures and tables, caption them, and refer to them in the text. Label photos and sketches and say where they come from.</li>
+<li>Keep the argument in the body. The body should read without the appendices.</li>
+<li>Use one referencing style, consistently, for in-text citations and the bibliography. Cite every source you rely on, including images, data and standards.</li>
+<li>Explain technical terms the first time and use them accurately. Avoid jargon for its own sake.</li>
+<li>Remove your name, other people's names and your school's name from the essay and images.</li>
+<li>Proofread. Use the same wording for the research question every time.</li>
+</ul>
+
+<h2 id="rppf">10. The RPPF and the three reflection sessions</h2>
+<p>You meet your supervisor three times for a reflection session: <b>first</b> (after your topic and plan), <b>interim</b> (once you have collected some evidence) and <b>final</b>, which is the <b>viva voce</b> (after you submit the finished essay). After each session you write a short reflection on the form. The total limit is <b>500 words</b>; examiners read the first 500.</p>
+<p>The Researcher's reflection space (RRS) is where you keep notes as you go. It is for your own preparation and is not assessed, so write in it often.</p>
+<div class="tw"><table class="t"><tr><th>Band</th><th>What the reflections look like</th></tr>
+<tr><td>1–2: limited</td><td>Mostly describe what you did and when.</td></tr>
+<tr><td>3–4: good</td><td>Analyse decisions and planning, mention concepts you learnt and skills you built, show some initiative.</td></tr>
+<tr><td>5–6: excellent</td><td>Evaluate: say what challenges came up, what you considered, what you changed and why; your voice, your initiative, your learning.</td></tr></table></div>
+<p>Useful starts: "I first planned to…, but when … I realised…, so I…", "This changed my understanding of … because…", "If I did this again I would…", "A question I could not answer was…".</p>
+<p class="tip"><b>Do not wait until the end.</b> Write a few sentences after every meeting while the decision is fresh.</p>
+
+<h2 id="integrity">11. Academic integrity</h2>
+<ul>
+<li>The essay must be your own work. Acknowledge every idea, image, data set and quotation that is not yours.</li>
+<li>Do not reuse data, materials or text from another assessment, including your IA or design project.</li>
+<li>Keep your research log, test records, photos and drafts. They show how the work developed and protect you if authorship is questioned.</li>
+<li>For AI tools, follow the IB's current academic integrity policy and your school's rules, and be open with your supervisor about any tool you use. The guide version used for this site does not set out a detailed AI rule, so ask your coordinator.</li>
+</ul>
+
+<h2 id="plan">12. Timeline for about 40 hours</h2>
+<div class="tw"><table class="t"><tr><th>Stage</th><th>Hours</th><th>What you have at the end</th></tr>
+<tr><td>Explore topics and read around</td><td>4</td><td>Three possible topics, one chosen; first reflection session</td></tr>
+<tr><td>Write the RQ and plan the method</td><td>4</td><td>A focused question, a method, a list of sources, equipment and ethics checked</td></tr>
+<tr><td>Background research</td><td>6</td><td>Notes on key concepts, source evaluation, referencing started</td></tr>
+<tr><td>Collect primary evidence</td><td>8</td><td>Raw data, photos, logs, or interview transcripts</td></tr>
+<tr><td>Process and analyse</td><td>5</td><td>Tables, graphs, worked calculation, first conclusions; interim reflection session</td></tr>
+<tr><td>Write the first draft</td><td>8</td><td>A full draft under 4,000 words</td></tr>
+<tr><td>Revise, reference and format</td><td>4</td><td>The final essay, figures captioned, references checked</td></tr>
+<tr><td>Final reflection (viva voce) and RPPF</td><td>1</td><td>The three reflections completed</td></tr></table></div>
+<p class="small">Hours are a suggested split of the 40-hour guide. Your school will set its own deadlines.</p>
+
+<h2 id="mistakes">13. Mistakes the examiners keep reporting</h2>
+<ul>
+<li><b>Question too broad</b> ("How has technology changed…"). Narrow to one product, user group or variable.</li>
+<li><b>Descriptive, historical or review essays.</b> The marks are for analysis.</li>
+<li><b>Methodology missing or not explained</b>, especially why you chose it and how it answers the question.</li>
+<li><b>A lab-report essay.</b> Data without a design argument. Always link results back to design decisions.</li>
+<li><b>Unreliable or biased sources</b> used without comment; heavy reliance on websites.</li>
+<li><b>Key figures, data or methods in appendices.</b> Examiners do not read them.</li>
+<li><b>Conclusions that repeat earlier text</b> or claim more than the data shows.</li>
+<li><b>Descriptive RPPFs</b> that list what happened without saying what you thought, changed or learnt.</li>
+<li><b>Identifying details</b> (names, school) left in the essay.</li>
+</ul>
+<p>Strong essays use first-hand testing, combine more than one kind of evidence, present clear tables and charts, and show CAD or annotated drawings that explain the design.</p>
+
+<h2 id="check">14. Before you submit</h2>
+<ul class="chk">
+<li><input type="checkbox"> The research question is a question, identical everywhere it appears.</li>
+<li><input type="checkbox"> It is focused, arguable and about design technology.</li>
+<li><input type="checkbox"> The method is explained so someone could repeat it, and justified.</li>
+<li><input type="checkbox"> I used primary and secondary sources and judged both.</li>
+<li><input type="checkbox"> Processed data, one worked calculation, uncertainties and labelled graphs are in the body.</li>
+<li><input type="checkbox"> Each section links back to the question.</li>
+<li><input type="checkbox"> I evaluated my own method (reliability, validity, limits).</li>
+<li><input type="checkbox"> The conclusion answers the question and does not add new evidence.</li>
+<li><input type="checkbox"> The essay is within 4,000 words and nothing essential is in an appendix.</li>
+<li><input type="checkbox"> Headings, figure numbers, captions and one referencing style are consistent.</li>
+<li><input type="checkbox"> No double-dipping with my IA or design project.</li>
+<li><input type="checkbox"> Names and school identifiers are removed.</li>
+<li><input type="checkbox"> All three reflections are on the RPPF, in my own voice, within 500 words.</li>
+</ul>
+<p class="small">Sources: IB Extended essay guide (first assessment 2027) including the Design technology subject guidance; IB Extended Essay subject reports for Design Technology 2018, 2021 and 2024.</p>
+</main><footer class="pn"><span></span><a href="criteria.html">Criteria in plain language &rarr;</a></footer></body></html>

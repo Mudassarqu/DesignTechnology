@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EE research question lab</title><style>:root{--bg:#f6f7f9;--fg:#1c2330;--card:#fff;--mut:#5f6773;--line:#d5d9e0;--g:#1e8a4c;--gb:#f1faf4;--i:#d9822b;--ib:#fff8ee;--f:#3a5bbf;--fb:#f2f5fd;--acc:#1f4e79}
+@media(prefers-color-scheme:dark){:root{--bg:#12161d;--fg:#e6e9ee;--card:#1a2029;--mut:#9aa3b0;--line:#2c3441;--gb:#14281d;--ib:#2c2012;--fb:#161e33;--acc:#7fb2e5}}
+*{box-sizing:border-box}html{overflow-x:hidden;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 Inter,system-ui,sans-serif}
+a{color:inherit}
+.bar{position:sticky;top:0;z-index:20;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:8px 16px;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .home{color:var(--mut);text-decoration:none;font-size:14px}.bar nav{margin-left:auto;display:flex;gap:6px}
+.bar nav a{width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;text-decoration:none;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:13px}
+main{max-width:1200px;margin:0 auto;padding:16px}
+h1{margin:.3em 0;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.15}
+h2{line-height:1.2}
+.lead{font-size:1.05rem;max-width:70ch}.small{font-size:.85rem;color:var(--mut);max-width:80ch}
+.badge{display:inline-block;margin:.2em 0;padding:3px 12px;border:1px solid var(--i);background:var(--ib);border-radius:6px;font-size:.85rem}
+.chip{display:inline-block;padding:1px 10px;border-radius:12px;color:#fff;font-weight:700;font-size:.82rem}
+.chip.g{background:var(--g)}.chip.i{background:var(--i)}.chip.f{background:var(--f)}
+.tw{overflow-x:auto}.tbl{border-collapse:collapse;width:100%;min-width:720px;background:var(--card);font-size:.9rem}
+.tbl th,.tbl td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}.tbl th{background:var(--bg)}
+.crit{margin:36px 0 8px;padding:14px 18px;background:var(--c);color:#fff;border-radius:8px;scroll-margin-top:60px}.crit h2{margin:0 0 4px}.crit p{margin:4px 0}
+.pg{margin:20px 0;padding-top:4px;scroll-margin-top:60px}
+.ph{display:flex;align-items:center;gap:10px;margin-bottom:8px}.ph h3{margin:0;font-size:1.05rem;flex:1}
+.cc{width:26px;height:26px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex:none}.pnum{color:var(--mut);font-size:.85rem}
+.row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:22px;align-items:start}
+.row.ex{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
+.imgw{position:relative;margin-right:10px}.imgw img{width:100%;display:block;border:1px solid var(--line);background:#fff;box-shadow:0 1px 5px #0003}
+.pin{position:absolute;right:-12px;width:24px;height:24px;border-radius:50%;color:#fff;font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;border:2px solid var(--bg);transform:translateY(-50%)}
+.pin.g,.box.g .n{background:var(--g)}.pin.i,.box.i .n{background:var(--i)}.pin.f,.box.f .n{background:var(--f)}
+.side{display:flex;flex-direction:column;gap:10px}
+.strand{padding:10px 14px;border-left:4px solid var(--c);background:var(--card);border-radius:4px;font-size:.92rem}
+.box{padding:10px 14px;border-left:5px solid;border-radius:5px}.box p{margin:2px 0 0;font-size:.95rem}
+.box .h{font-weight:700;font-size:.82rem;display:flex;gap:8px;align-items:center}
+.box .n{width:22px;height:22px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.75rem;flex:none}
+.box.g{border-color:var(--g);background:var(--gb)}.box.g .h{color:var(--g)}
+.box.i{border-color:var(--i);background:var(--ib)}.box.i .h{color:var(--i)}
+.box.f{border-color:var(--f);background:var(--fb)}.box.f .h{color:var(--f)}
+.paper{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px 22px;font:1rem/1.65 Literata,Georgia,serif;box-shadow:0 1px 4px #0002}
+.paper h4{font:700 1rem Inter,system-ui,sans-serif;margin:1em 0 .3em}.paper p{margin:.6em 0}.paper ul,.paper ol{margin:.4em 0;padding-left:1.3em}
+.paper.form{border-left:5px solid #a03a52}
+.paper table{border-collapse:collapse;font:.85rem Inter,system-ui,sans-serif;margin:.6em 0;width:100%}.paper td,.paper th{border:1px solid var(--line);padding:4px 8px;text-align:left}.paper th{background:var(--bg)}
+.paper figure{margin:.8em 0}.paper figcaption{font:.8rem Inter,system-ui,sans-serif;color:var(--mut);margin-top:4px}.paper svg{width:100%;height:auto;display:block;color:var(--fg)}
+.paper .q{border-left:3px solid var(--line);padding-left:10px;color:var(--mut)}
+sup.mk{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:17px;border-radius:9px;color:#fff;font:700 .68rem Inter,sans-serif;padding:0 4px;margin-left:2px;vertical-align:super}
+sup.mk.g{background:var(--g)}sup.mk.i{background:var(--i)}sup.mk.f{background:var(--f)}
+.tot{margin-top:28px}
+.pn{display:flex;justify-content:space-between;max-width:1200px;margin:20px auto;padding:0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin:14px 0 26px}
+.card{display:flex;flex-direction:column;gap:3px;padding:14px;background:var(--card);border:1px solid var(--line);border-radius:8px;text-decoration:none}.card span{font-size:1.08rem;font-weight:600}.card small{color:var(--mut)}
+.card:hover{border-color:var(--acc)}
+@media(max-width:760px){.row,.row.ex{grid-template-columns:minmax(0,1fr)}.imgw{margin-right:12px}.paper{padding:14px 14px}}
+@media print{.bar,.pn{display:none}}
+
+.doc{max-width:860px;margin:0 auto}.doc h1{margin-top:.5em}.doc h2{margin-top:1.8em;padding-top:.4em;border-top:2px solid var(--line);scroll-margin-top:60px}
+.doc h3{margin:1.2em 0 .3em}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 8px}.toc a{padding:3px 11px;border:1px solid var(--line);border-radius:14px;background:var(--card);text-decoration:none;font-size:.85rem}.toc a:hover{border-color:var(--acc)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.card2{padding:12px;background:var(--card);border:1px solid var(--line);border-radius:8px;text-align:center}.card2 b{display:block;font-size:1.7rem;color:var(--acc)}.card2 span{font-size:.85rem;color:var(--mut)}
+table.t{border-collapse:collapse;width:100%;background:var(--card);font-size:.92rem;min-width:560px}table.t th,table.t td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}table.t th{background:var(--bg)}
+.tip{border-left:5px solid var(--g);background:var(--gb);padding:10px 14px;border-radius:5px}
+.chk{list-style:none;padding-left:0}.chk li{padding:4px 0}.chk input{margin-right:8px;transform:scale(1.2)}
+.doc ul,.doc ol{padding-left:1.3em}.doc li{margin:.25em 0}
+
+.opt{display:block;width:100%;text-align:left;margin:6px 0;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--acc)}.opt.ok{border-color:var(--g);background:var(--gb)}.opt.no{border-color:var(--i);background:var(--ib)}
+.btn{padding:9px 18px;border:0;border-radius:8px;background:var(--acc);color:#fff;font:600 .95rem Inter,sans-serif;cursor:pointer}
+#rq{font:1.15rem/1.5 Literata,Georgia,serif;padding:12px 16px;background:var(--card);border-left:5px solid var(--acc);border-radius:5px}
+.fixed{border-left:4px solid var(--g);background:var(--gb);padding:8px 12px;border-radius:5px}
+textarea,input[type=text]{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit}
+.cl{list-style:none;padding:0}.cl li{padding:5px 0}.cl li.p b{color:var(--g)}.cl li.x b{color:var(--i)}.cl li span{display:block;color:var(--mut);font-size:.9rem;margin-left:1.4em}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}.grid4 label{font-size:.85rem;color:var(--mut)}
+.funnel div{padding:8px 14px;margin:4px auto;border-radius:6px;background:var(--card);border:1px solid var(--line)}
+.funnel div:nth-child(1){width:100%}.funnel div:nth-child(2){width:88%}.funnel div:nth-child(3){width:76%}.funnel div:nth-child(4){width:64%;border-color:var(--g);background:var(--gb)}
+.panel2{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
+</style></head><body><header class="bar"><a class="home" href="../index.html#ee">← Home</a><a class="home" href="index.html">EE hub</a><b>RQ lab</b></header><main class="doc">
+<h1>Research question lab</h1>
+<p class="lead">A good research question decides how good the essay can be. Practise spotting strong and weak questions, then test and build your own.</p>
+<h2>1. Narrow it down</h2>
+<div class="funnel"><div><b>Area:</b> Sustainable packaging</div><div><b>Topic:</b> Reusable bottles versus single-use bottles</div><div><b>Focus:</b> Break-even number of uses for a stainless-steel bottle in the UAE</div><div><b>Question:</b> To what extent is a reusable bottle more sustainable than a single-use bottle for students in Dubai, judged on life-cycle data and a usage survey?</div></div>
+<p class="small">Each step adds a product, a place, a user or a measure.</p>
+<h2>2. Spot the problem</h2>
+<div class="panel2" id="quiz"><p id="prog" class="small"></p><div id="rq"></div><div id="opts"></div><div id="fb"></div><p><button class="btn" id="nx" hidden>Next question</button></p></div>
+<h2>3. Check your own draft</h2>
+<div class="panel2"><label for="mine">Type your draft research question</label><textarea id="mine" rows="3" placeholder="To what extent does …?"></textarea><p><button class="btn" id="chk">Check it</button></p><div id="res" aria-live="polite"></div></div>
+<h2>4. Build a question</h2>
+<div class="panel2"><div class="grid4"><div><label for="b1">What you change or compare</label><input type="text" id="b1" placeholder="infill pattern"></div><div><label for="b2">What you measure or judge</label><input type="text" id="b2" placeholder="the strength-to-mass ratio of a printed bracket"></div><div><label for="b3">How you will measure it</label><input type="text" id="b3" placeholder="a load test with three repeats"></div><div><label for="b4">For whom or where (optional)</label><input type="text" id="b4" placeholder="a school workshop"></div></div><p><button class="btn" id="bb">Build my question</button></p><div id="bout" aria-live="polite"></div></div>
+<h2>Check before you commit</h2>
+<ul><li>Can you collect evidence yourself, within about 40 hours?</li><li>Would two reasonable people reach different answers before the evidence?</li><li>Is it a design technology question and not a project to make a product?</li><li>Does it avoid your IA product, your IA data and your design project?</li><li>Have you shown it to your supervisor?</li></ul>
+<script>
+const EX=[{"q": "How has technology changed smartphones?", "a": 0, "why": "It covers a whole industry over decades, and it invites a timeline, not an argument. The DT guide warns against topics that only document how a product developed.", "fix": "To what extent does a modular battery design improve the repairability of three current phone models, scored by a teardown rubric?"}, {"q": "What is 3D printing and how does it work?", "a": 1, "why": "This is a description question. A good answer is a summary, and there is nothing to argue or test.", "fix": "To what extent does layer height change the surface roughness and print time of an FDM-printed part?"}, {"q": "Is the bicycle a good design?", "a": 2, "why": "'Good' is not defined, and no user or criteria are named. You cannot collect evidence to settle it.", "fix": "How well does a commuter bicycle meet the reach and posture needs of riders under 160 cm, judged against anthropometric data and a rider trial?"}, {"q": "To what extent does wall thickness affect the impact resistance of 3D-printed PLA phone cases, measured by drop height at failure?", "a": 4, "why": "One variable changed, one measured, one product type, and the answer is not obvious. It also suggests a method straight away.", "fix": null}, {"q": "How did the Dyson vacuum cleaner come to be invented?", "a": 1, "why": "This is history. The guide lists purely historical topics that only document development as inappropriate.", "fix": "To what extent does cyclonic separation maintain suction better than a bag filter as the dust container fills, in a bench test of two machines?"}, {"q": "Evaluating the iPad as a learning tool", "a": 2, "why": "It is a title, not a question. It is also a product review, and it does not name the learners, the task or the criteria for 'learning tool'.", "fix": "How effective is a tablet stand angle at reducing neck flexion for Grade 9 students reading on tablets for 20 minutes?"}, {"q": "To what extent does handle diameter affect grip force and perceived comfort for 12\u201314-year-old users of a hand trowel?", "a": 4, "why": "A clear variable, a defined user group, a measurable outcome. You can test it and the result is not predictable.", "fix": null}, {"q": "Why is climate change bad for design?", "a": 0, "why": "This is a global issue and 'bad for design' is not defined. It would need a product, a place and a measure to become a DT question.", "fix": "To what extent can passive louvres on a west-facing classroom window reduce indoor temperature rise in Dubai, tested on a scale model?"}, {"q": "To what extent does adding recycled PET fibre reduce the tensile strength of woven bag straps compared with virgin PET?", "a": 4, "why": "Two materials, one property, a test you can run. It also links to a design decision about sustainable materials.", "fix": null}, {"q": "How can I redesign my school cafeteria?", "a": 3, "why": "This is a design project, closer to the IA, and it asks you to produce a design rather than investigate a question. The EE must not duplicate your design work.", "fix": "To what extent does queue layout affect average waiting time in a school cafeteria, measured by timed observation of two layouts?"}, {"q": "Which is better: aluminium or steel for bike frames?", "a": 2, "why": "'Better' depends on the criteria, such as mass, stiffness, cost or life-cycle impact, which are not stated. You also need to say which frame, which loads.", "fix": "Which of aluminium 6061 and a chromoly steel gives the higher stiffness-to-mass ratio in a tube of the same outer diameter, using published data and a bend test?"}, {"q": "To what extent do reflective coatings reduce heat build-up inside parked cars?", "a": 4, "why": "Focused variable and outcome. To make it fully DT, name the coating, the test conditions and the design decision it informs.", "fix": null}],CATS=["Too broad", "Descriptive or historical", "Vague or not testable", "A design task, not research", "Focused and arguable"];let i=0,score=0,done=[];
+const $=s=>document.querySelector(s);
+function show(){const e=EX[i];$('#prog').textContent=`Question ${i+1} of ${EX.length} · Score ${score}`;$('#rq').textContent='“'+e.q+'”';
+ $('#opts').innerHTML=CATS.map((c,k)=>`<button class="opt" data-k="${k}">${c}</button>`).join('');$('#fb').innerHTML='';$('#nx').hidden=true;
+ document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>pick(+b.dataset.k))}
+function pick(k){const e=EX[i];document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;const kk=+b.dataset.k;if(kk===e.a)b.classList.add('ok');else if(kk===k)b.classList.add('no')});
+ const right=k===e.a;if(right)score++;
+ $('#fb').innerHTML=`<p><b>${right?'Yes.':'Not quite.'}</b> This one is: <b>${CATS[e.a]}</b>.</p><p>${e.why}</p>${e.fix?`<p class="fixed"><b>A sharper version:</b> ${e.fix}</p>`:''}`;
+ $('#nx').hidden=false;$('#nx').textContent=i<EX.length-1?'Next question':'See result'}
+$('#nx').onclick=()=>{if(i<EX.length-1){i++;show()}else{$('#quiz').innerHTML=`<h3>Result: ${score} of ${EX.length}</h3><p>${score>=10?'You can spot a weak question quickly.':score>=7?'Good. Re-read the explanations for the ones you missed.':'Worth a second go. Read section 5 of the guide first.'}</p><button class="btn" onclick="location.reload()">Try again</button>`}};
+show();
+/* checker */
+const W=['how','what','why','to what extent','which','who','where','when','is','are','does','do','can','should','would'];
+function check(){const t=$('#mine').value.trim();const lc=t.toLowerCase();const out=[];
+ const q=t.endsWith('?');const n=t.split(/\s+/).filter(Boolean).length;
+ const start=W.some(w=>lc.startsWith(w+' ')||lc===w);
+ const meas=/(extent|affect|effect|influence|compare|reduce|increase|improve|effective|suitable|best|meets?|against)/.test(lc);
+ const usr=/(student|user|child|children|adult|elderly|grade|year|older|people|learner|commuter|worker|rider|patient|customer|school|home|city)/.test(lc);
+ const prod=/(design|prototype|product|material|print|frame|handle|strap|bottle|chair|tool|system|packaging|bike|bicycle|battery|device|mechanism|structure|model|bracket|coating|louvre|panel|app)/.test(lc);
+ const hist=/(history|evolved|evolution|how has|how did|over time|development of)/.test(lc);
+ const rows=[[q,'Ends with a question mark','Write it as an actual question.'],[start,'Starts like a question (How, To what extent, Which…)','Begin with a question word so the aim is clear.'],[n>=12&&n<=40,'A workable length (12–40 words)',n<12?'It may be too short to name the variable, user and measure.':'It may be trying to do too much. Split or narrow.'],[meas,'Names something to compare, change or judge','Say what you will change or compare, and what you will measure.'],[usr,'Names who or where it applies to','Name the users or setting, such as Grade 11 students or a school workshop.'],[prod,'Mentions a product, material or system','Name the product, material or system.'],[!hist,'Not framed as history or "how has… changed"','Reframe so you can test or compare, not narrate.']];
+ if(!t){$('#res').innerHTML='<p>Type a draft question first.</p>';return}
+ const pass=rows.filter(r=>r[0]).length;
+ $('#res').innerHTML=`<p><b>${pass} of ${rows.length} checks pass.</b> This is a quick screen using simple word checks. It cannot judge quality, so use it as a prompt, then show your supervisor.</p><ul class="cl">`+rows.map(r=>`<li class="${r[0]?'p':'x'}"><b>${r[0]?'✓':'✗'}</b> ${r[1]}${r[0]?'':` <span>${r[2]}</span>`}</li>`).join('')+'</ul>'}
+$('#chk').onclick=check;
+/* builder */
+function build(){const g=id=>$(id).value.trim();const a=g('#b1'),b=g('#b2'),c=g('#b3'),d=g('#b4');
+ if(!a||!b||!c){$('#bout').textContent='Fill in the first three boxes.';return}
+ $('#bout').innerHTML=`<b>To what extent does ${a} affect ${b}${d?' for '+d:''}${c?', measured by '+c:''}?</b><br><span class="small">Edit the wording until it reads naturally, then check it above.</span>`}
+$('#bb').onclick=build;
+</script></main><footer class="pn"><a href="criteria.html">&larr; Criteria</a><a href="exemplar-1-infill.html">Exemplar 1 &rarr;</a></footer></body></html>
