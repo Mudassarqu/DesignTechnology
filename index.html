@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AIA Design Technology · IB DP revision</title>
+<meta name="description" content="Notes, quizzes and live practice for IB DP Design Technology at Ambassador International Academy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500;700&family=Literata:opsz,wght@7..72,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><i></i>AIA Design Technology</a>
+<nav><span id="userchip"></span></nav></div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Who does your design leave out?</h1>
+    <p class="lead">Every product is sized for someone. Drag the doorway and see who has to duck. Then learn why designers choose the 5th, 50th and 95th percentile.</p>
+    <a class="btn" href="topic.html?t=a1-1">Start with A1.1 Ergonomics</a>
+  </div>
+  <div class="demo">
+    <svg viewBox="0 0 520 210" role="img" aria-label="Normal distribution of adult height with a movable doorway height">
+      <defs><clipPath id="fitclip"><rect id="cliprect" x="0" y="0" width="300" height="170"/></clipPath></defs>
+      <path id="curve" fill="none" stroke="var(--ink)" stroke-width="2"/>
+      <path id="area" fill="var(--blue)" opacity=".75" clip-path="url(#fitclip)"/>
+      <line id="door" y1="14" y2="170" stroke="var(--bad)" stroke-width="3"/>
+      <line x1="10" y1="170" x2="510" y2="170" stroke="var(--ink)"/>
+      <text class="dim" x="10" y="190">1500 mm</text><text class="dim" x="510" y="190" text-anchor="end">2000 mm</text>
+      <text class="dim" x="260" y="190" text-anchor="middle">adult stature (illustrative data)</text>
+    </svg>
+    <div class="ro"><span>Doorway height <b id="dh">1900 mm</b></span><span id="dres"></span></div>
+    <input type="range" id="slider" min="1750" max="2050" step="5" value="1900" aria-label="Doorway height in millimetres">
+    <small>Illustrative adult stature: mean 1750 mm, standard deviation 75 mm. A doorway at the 95th percentile still makes 1 in 20 people duck. That is why safety-critical clearances use the 97.5th percentile or more.</small>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <div class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="t-theory" aria-selected="true" aria-controls="p-theory">Theory</button>
+    <button role="tab" id="t-ia" aria-selected="false" aria-controls="p-ia">For IA</button>
+    <button role="tab" id="t-ee" aria-selected="false" aria-controls="p-ee">For EE</button>
+  </div>
+
+  <div class="panel" id="p-theory" role="tabpanel">
+    <h2>Design in theory, practice and context</h2>
+    <p class="sec-note">Each topic has notes, flashcards, a quiz, fill-in-the-blanks, theory questions with mark schemes, exam-style case studies and a timed live quiz. Your scores are saved for your teacher.</p>
+    <div class="pills" role="tablist" aria-label="Theme" id="themes"></div>
+    <div class="pills" id="levels" aria-label="Level"><span class="sec-note">Show:</span></div>
+    <div class="grid" id="tgrid"></div>
+    <h3 style="margin-top:1.6em">Slides</h3>
+    <p class="sec-note">Download the class slides for the topics in this theme.</p>
+    <ul class="slist" id="slides"></ul>
+  </div>
+
+  <div class="panel" id="p-ia" role="tabpanel" hidden>
+    <h2>Internal assessment (IA 2027)</h2>
+    <p class="sec-note">Real student portfolios, annotated page by page against the 2027 rubric. Read what went well and what could be improved in each strand.</p>
+    <div class="grid" id="iag"></div>
+  </div>
+
+  <div class="panel" id="p-ee" role="tabpanel" hidden>
+    <h2>Extended essay in Design Technology</h2>
+    <p class="sec-note">A 4,000-word research essay, marked out of 34. Start with the guide, practise your research question, then study annotated essays to see what the criteria look like on the page.</p>
+    <h3 style="margin:1.2em 0 .5em">Start here</h3>
+    <div class="grid">
+<a class="tcard" href="ee/guide.html"><div class="code">GUIDE</div><h3>Student guide</h3><p>What the EE is, the DT rules, topic types, methods, structure, timeline, mistakes and a checklist.</p></a><a class="tcard" href="ee/criteria.html"><div class="code">CRITERIA</div><h3>The five criteria</h3><p>Criteria A to E in plain language, with what to do for each band.</p></a><a class="tcard" href="ee/rq-lab.html"><div class="code">TOOL</div><h3>Research question lab</h3><p>Spot weak questions, check your own draft, and build a focused question.</p></a><a class="tcard" href="topic.html?t=ee-1"><div class="code">QUIZ</div><h3>Notes and quizzes</h3><p>Notes, flashcards, quizzes, a live game and exam-style practice on EE knowledge.</p></a>
+    </div>
+    <h3 style="margin:1.4em 0 .5em">Model essays written for this course</h3>
+    <p class="sec-note">Original essays on real-world ideas at different levels, annotated against the criteria. Data in them are illustrative. Marks are hidden.</p>
+    <div class="grid">
+<a class="tcard" href="ee/exemplar-1-infill.html"><div class="code">STRONG</div><h3>Infill pattern and bracket strength</h3><p>Testing 3D-printed PETG brackets to cut filament waste.</p></a><a class="tcard" href="ee/exemplar-2-straps.html"><div class="code">STRONG</div><h3>Bag-strap width and comfort</h3><p>A user trial on school-bag straps, ending in a design recommendation.</p></a><a class="tcard" href="ee/exemplar-3-bottles.html"><div class="code">MIDDLE</div><h3>Reusable or single-use bottle</h3><p>A break-even study built mostly on published data.</p></a><a class="tcard" href="ee/exemplar-4-smartphones.html"><div class="code">WEAK</div><h3>How has technology changed phones?</h3><p>A broad, descriptive essay, with a plan to rescue it.</p></a>
+    </div>
+    <h3 style="margin:1.4em 0 .5em">Real IB essays, annotated</h3>
+    <p class="sec-note">Three published IB student essays, annotated page by page against the current criteria. They were written under older IB criteria, so the comments say how they would be read today.</p>
+    <div class="grid">
+<a class="tcard" href="ee/ib-2015-classroom.html"><div class="code">IB 2015</div><h3>Spatial design and classroom atmosphere</h3><p>A research question about a classroom, with photos and interviews.</p></a><a class="tcard" href="ee/ib-2015-hongkong.html"><div class="code">IB 2015</div><h3>Hong Kong mass transport</h3><p>A review of current and proposed transport technologies.</p></a><a class="tcard" href="ee/ib-2013-virtual-dt-room.html"><div class="code">IB 2013</div><h3>A virtual DT workshop</h3><p>CAD models in a 3-D world to teach tool safety.</p></a>
+    </div>
+    <h3 style="margin:1.4em 0 .5em">Feedback on a draft</h3>
+    <div class="grid">
+<a class="tcard" href="ee/draft-feedback.html"><div class="code">DRAFT</div><h3>Gravity-assisted bag slide</h3><p>Section-by-section feedback on a work-in-progress essay.</p></a><a class="tcard" href="resources/EE_in_DT.pptx" download><div class="code">SLIDES</div><h3>Class slides: EE in DT</h3><p>Download the class slides. The current guide no longer requires an abstract.</p></a>
+    </div>
+  </div>
+</div>
+<footer><div class="wrap">Built for IB DP Design Technology students at Ambassador International Academy. Based on the IB Design technology guide, first assessment 2027.</div></footer>
+
+<script src="js/config.js"></script><script src="js/app.js"></script><script src="js/topics/index.js"></script>
+<script>
+/* tabs with hash */
+const names=['theory','ia','ee'];
+function tab(n){ if(!names.includes(n)) n='theory'; names.forEach(x=>{const b=document.getElementById('t-'+x); b.setAttribute('aria-selected',x===n); document.getElementById('p-'+x).hidden=x!==n}); history.replaceState(null,'','#'+n)}
+names.forEach(n=>document.getElementById('t-'+n).onclick=()=>tab(n));
+tab(location.hash.slice(1));
+/* theory grid */
+let theme=(localStorage.getItem('aia.theme')||'A'), lvl='all';
+try{}catch(e){}
+const THEMES=window.THEMES,LIST=window.TOPIC_LIST,READY=window.READY||[];
+function drawTheory(){
+  const th=document.getElementById('themes'); th.innerHTML='';
+  Object.keys(THEMES).forEach(k=>{const b=document.createElement('button');b.className='pill';b.setAttribute('role','tab');b.setAttribute('aria-selected',k===theme);b.textContent=THEMES[k].replace(/^Theme (.): /,'$1. ');b.onclick=()=>{theme=k;try{localStorage.setItem('aia.theme',k)}catch(e){}drawTheory()};th.appendChild(b)});
+  const lv=document.getElementById('levels'); lv.innerHTML='<span class="sec-note">Show:</span>';
+  [['all','All topics'],['hl','HL only'],['sl','SL and HL']].forEach(([k,l])=>{const b=document.createElement('button');b.className='pill sm';b.setAttribute('aria-pressed',k===lvl);b.textContent=l;b.onclick=()=>{lvl=k;drawTheory()};lv.appendChild(b)});
+  const g=document.getElementById('tgrid'); g.innerHTML='';
+  LIST.filter(t=>t.t===theme&&(lvl==='all'||(lvl==='hl'?t.lv==='HL':t.lv!=='HL'))).forEach(t=>{
+    const ok=READY.includes(t.id), badge=(t.lv==='HL'?'<span class="badge">HL</span>':'')+(ok?'<span class="badge live">Ready</span>':'');
+    g.insertAdjacentHTML('beforeend', ok
+      ? `<a class="tcard" href="topic.html?t=${t.id}"><span class="code">${t.code}</span>${badge}<h3>${t.title}</h3><p>${t.blurb}</p></a>`
+      : `<div class="tcard soon"><span class="code">${t.code}</span>${badge}<h3>${t.title}</h3><p>Coming soon.</p></div>`)});
+  const sl=document.getElementById('slides'); sl.innerHTML='';
+  LIST.filter(t=>t.t===theme&&READY.includes(t.id)&&window.PPTX[t.id]).forEach(t=>sl.insertAdjacentHTML('beforeend',`<li><a href="resources/${window.PPTX[t.id]}" download>${t.code} ${t.title}</a></li>`));
+  if(!sl.children.length) sl.innerHTML='<li class="sec-note">No slides for this theme yet.</li>';
+}
+drawTheory();
+/* IA cards */
+[['01','Prosthetics'],['02','Trowel'],['03','Easy On/Off Pants'],['04','Capsule Toy'],['05','Bending Bar'],['06-1','Math Play Set','06.1'],['06-2','Water Carrier','06.2'],['07','Massage Tool'],['08','Wheelchair Desk'],['09-1','FPV Drone Racing Tool','09.1'],['09-2','Table-top Stand-up Desk','09.2']]
+ .forEach(([id,t,l])=>{document.getElementById('iag').insertAdjacentHTML('beforeend',`<a class="tcard" href="ia/sample-${id}.html"><span class="code">Sample ${l||id}</span><h3>${t}</h3><p>Annotated portfolio</p></a>`)});
+/* hero demo */
+(function(){
+  const M=1750,S=75,X0=1500,X1=2000,W=500,H=140,B=170;
+  const x=v=>10+(v-X0)/(X1-X0)*W, pdf=v=>Math.exp(-0.5*((v-M)/S)**2), y=v=>B-pdf(v)*H;
+  let d='M'+x(X0)+' '+B; for(let v=X0;v<=X1;v+=5) d+=' L'+x(v).toFixed(1)+' '+y(v).toFixed(1); d+=' L'+x(X1)+' '+B+' Z';
+  document.getElementById('curve').setAttribute('d',d); document.getElementById('area').setAttribute('d',d);
+  const s=document.getElementById('slider'),dh=document.getElementById('dh'),res=document.getElementById('dres');
+  const upd=()=>{ const v=+s.value; const px=x(Math.min(v,X1)); document.getElementById('cliprect').setAttribute('width',px);
+    const door=document.getElementById('door'); door.setAttribute('x1',px); door.setAttribute('x2',px);
+    const p=App.cdf((v-M)/S)*100; dh.textContent=v+' mm';
+    const duck=100-p; res.innerHTML = duck<0.05 ? '<b>Everyone</b> fits' : duck<1 ? 'About <b>1 in '+Math.round(100/duck)+'</b> must duck' : '<b>'+duck.toFixed(duck<10?1:0)+'%</b> must duck'; };
+  s.oninput=upd; upd();
+})();
+</script>
+</body></html>

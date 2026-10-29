@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Topic · AIA Design Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@500;700&family=Literata:opsz,wght@7..72,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><i></i>AIA Design Technology</a>
+<nav><a class="chip" href="index.html#theory">← Home</a><span id="userchip"></span></nav></div></header>
+<section class="thead"><div class="wrap">
+  <a class="back" href="index.html#theory">← Back to all topics</a>
+  <div class="code" id="tcode"></div><h1 id="ttitle" style="margin:.1em 0"></h1><p class="gq" id="tgq"></p>
+  <div class="bar"><div class="meter" id="meter"><i></i></div><span class="sec-note" id="mtxt"></span></div>
+  <div class="tabs" id="tabs" role="tablist" aria-label="Activities"></div>
+</div></section>
+<div class="wrap"><div class="panel" id="main" style="margin-top:-1px"></div></div>
+<footer><div class="wrap"><p><a class="back" href="index.html#theory">← Back to all topics</a> · <a class="back" href="index.html#ia">For IA</a></p>Built for IB DP Design Technology students at Ambassador International Academy. Based on the IB Design technology guide, first assessment 2027.</div></footer>
+<script src="js/config.js"></script><script src="js/app.js"></script><script src="js/topics/_common.js"></script>
+<script>
+(function(){var id=new URLSearchParams(location.search).get('t')||'a1-1';
+if(/^ee-/.test(id))document.querySelectorAll('a[href="index.html#theory"]').forEach(function(a){a.setAttribute('href','index.html#ee');if(/topics/.test(a.textContent))a.textContent='← Back to Extended essay'});
+function add(src,ok,bad){var s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=bad;document.body.appendChild(s)}
+add('js/topics/'+id+'.js',function(){add('js/topic.js')},function(){
+  document.getElementById('ttitle').textContent='This topic is coming soon';
+  document.getElementById('main').innerHTML='<div class="qwrap"><p>The notes and quizzes for this topic are not published yet.</p><p><a class="btn" href="index.html#theory">Back to all topics</a></p></div>'});
+})();
+</script>
+</body></html>

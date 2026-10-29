@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test the score sheet · AIA Design Technology</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><i></i>AIA Design Technology</a><nav><a class="chip" href="index.html">← Home</a></nav></div></header>
+<main class="wrap" style="padding-block:28px;max-width:720px">
+<h1>Test the score sheet</h1>
+<p>This page is for the teacher. It sends one test score to your Google Sheet and then reads it back, so you know the setup works before students use the site.</p>
+<div class="box" id="state"></div>
+<p><button class="btn" id="go">Send a test score</button></p>
+<div id="out" aria-live="polite"></div>
+<p class="sec-note">Test rows are named “Test Teacher” in the Scores tab. Delete them when you are done.</p>
+</main>
+<script src="js/config.js"></script>
+<script>
+const $=id=>document.getElementById(id), url=(window.CONFIG||{}).SHEET_URL;
+$('state').innerHTML = url
+  ? 'Sheet URL found in <code>js/config.js</code>:<br><code style="word-break:break-all">'+url.replace(/</g,'&lt;')+'</code>'
+  : '<b>No sheet URL yet.</b> Follow <code>SETUP.md</code>, paste the Web app URL into <code>SHEET_URL</code> in <code>js/config.js</code>, then reload this page.';
+$('go').onclick=async()=>{
+  const out=$('out'); if(!url){out.innerHTML='<p class="fb"><b>Not connected.</b> Add the URL to js/config.js first.</p>';return}
+  const email='teacher+'+Date.now()+'@test.local';
+  out.innerHTML='<p>Sending…</p>';
+  try{
+    await fetch(url,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify({ts:new Date().toISOString(),name:'Test Teacher',email,cls:'G12 DT',topic:'a1-1',activity:'Quiz',score:18,max:23,extra:'test-connection.html'})});
+  }catch(e){out.innerHTML='<p class="fb"><b>Could not send.</b> Check your internet connection and the URL.</p>';return}
+  await new Promise(r=>setTimeout(r,2500));
+  try{
+    const r=await fetch(url+(url.includes('?')?'&':'?')+'action=mine&email='+encodeURIComponent(email));
+    const rows=await r.json();
+    out.innerHTML = rows.length
+      ? '<p class="fb" style="border-color:var(--ok)"><b>Working.</b> The sheet received the test score ('+rows[0].score+' out of '+rows[0].max+'). Students’ scores will be saved the same way.</p>'
+      : '<p class="fb"><b>Sent, but not found yet.</b> Open the sheet and check the Scores tab. If it is empty, redeploy the script (Deploy > Manage deployments > Edit > New version) and make sure “Who has access” is “Anyone”.</p>';
+  }catch(e){
+    out.innerHTML='<p class="fb"><b>Sent, but could not read it back.</b> Open your sheet and look for a new row in the Scores tab. If you see one, the setup works. The read-back check needs “Who has access” set to “Anyone”.</p>';
+  }
+};
+</script></body></html>
