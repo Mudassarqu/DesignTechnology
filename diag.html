@@ -3,7 +3,7 @@
 <h1>Site check</h1><p>Take a screenshot of this whole page and send it to Claude.</p><p id="u"></p><table id="t"><tr><th>File</th><th>Status</th><th>Bytes</th><th>Starts with</th></tr></table><p id="r"></p>
 <script>
 document.getElementById('u').textContent=location.href;
-const files=['topic.html','index.html','js/topic.js','js/app.js','js/config.js','js/topics/_common.js','js/topics/index.js','js/topics/a2-1.js','js/topics/c1-1.js','js/topics/ee-1.js'];
+const files=['topic.html','index.html','js/topic.js','js/app.js','js/config.js','js/topics/common.js','js/topics/index.js','js/topics/a2-1.js','js/topics/c1-1.js','js/topics/ee-1.js'];
 (async()=>{
  const T=document.getElementById('t');
  for(const f of files){
@@ -15,7 +15,7 @@ const files=['topic.html','index.html','js/topic.js','js/app.js','js/config.js',
   T.insertAdjacentHTML('beforeend',`<tr><td>${f}</td><td class="${st==200?'ok':'bad'}">${st}</td><td>${len}</td><td>${head}</td></tr>`);
  }
  window.TOPICS={};
- await new Promise(res=>{const s=document.createElement('script');s.src='js/topics/_common.js?x='+Date.now();s.onload=res;s.onerror=res;document.body.appendChild(s)});
+ await new Promise(res=>{const s=document.createElement('script');s.src='js/topics/common.js?x='+Date.now();s.onload=res;s.onerror=res;document.body.appendChild(s)});
  for(const id of ['a2-1','c1-1']){
   await new Promise(res=>{const s=document.createElement('script');s.src='js/topics/'+id+'.js?x='+Date.now();s.onload=res;s.onerror=res;document.body.appendChild(s)});
  }
